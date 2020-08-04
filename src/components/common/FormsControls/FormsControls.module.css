@@ -1,0 +1,37 @@
+.postTextarea{
+    width: 500px;
+    height: 50px;
+    resize: none;
+}
+
+
+.formControl.error input,
+.formControl.error textarea{
+    border: 1px solid red;
+}
+
+.formControl.valid input,
+.formControl.valid textarea{
+    border: 1px solid green;
+}
+
+.formControl.error span{
+    font-size: 15px;
+    text-transform:capitalize;
+    color: red;
+}
+
+.formControl.valid span{
+    font-size: 15px;
+    text-transform:capitalize;
+    color: lawngreen;
+}
+
+
+/*.formControl span.invalidText{*/
+/*    color: red;*/
+/*}*/
+
+/*.formControl span.validText{*/
+/*    color: green;*/
+/*}*/

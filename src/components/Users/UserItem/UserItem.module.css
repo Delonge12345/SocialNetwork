@@ -1,0 +1,101 @@
+.userBlockInfo{
+    border: 1px solid lightgray;
+    display: flex;
+    border-radius: 10px;
+    justify-content: space-between;
+    width: 100%;
+    height: 200px;
+    box-shadow: 0 0 5px;
+    margin-bottom: 10px;
+}
+.userFollow{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    height: 100%;
+    width: 250px;
+
+}
+
+.userFollow img{
+    border-radius: 50%;
+    height: 80px;
+    width: 80px;
+    border: 1px solid lightgray;
+}
+
+.followButtonBlock{
+    display: flex;
+    height: 40px;
+
+}
+
+.followButton{
+    width: 150px;
+    height: 100%;
+    color: #1890ff;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    box-shadow: -7px -7px 20px 0 rgba(255,255,255,0.7),7px 7px 20px 0 rgba(0,0,0,0.2);
+}
+
+.followButton:hover{
+    box-shadow: inset -7px -7px 20px 0 rgba(255,255,255,0.7),
+                inset 7px 7px 20px 0 rgba(0,0,0,0.2);
+}
+
+
+.clickProfile{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 250px;
+}
+
+.profileButton{
+    font-weight: bold;
+    font-size: 12px;
+    color: #1890ff;
+    cursor: pointer;
+    width: 150px;
+    text-transform: uppercase;
+    height: 40px;
+    border-radius: 5px;
+    border: 2px solid dodgerblue;
+}
+
+.profileButton:hover{
+    box-shadow: inset -7px -7px 20px 0 rgba(255,255,255,0.7),
+    inset 7px 7px 20px 0 rgba(0,0,0,0.2);
+}
+
+.userInfo{
+    display: flex;
+    width: 500px;
+}
+
+.userSub{
+    display: flex;
+    width: 400px;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.userSub i{
+    border-bottom: 1px solid;
+
+}
+
+.userSub span{
+    font-family: "Droid Sans Mono Slashed";
+    height: 25px;
+
+}
+

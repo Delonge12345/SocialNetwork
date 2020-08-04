@@ -1,0 +1,17 @@
+.preloader{
+    height: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background: black;
+    z-index: 1000;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.preloader img  {
+    width: 500px;
+    height: 500px;
+}

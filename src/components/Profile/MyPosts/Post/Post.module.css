@@ -1,0 +1,55 @@
+.follower{
+    display: flex;
+    height: 200px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.follower img{
+    height: 50px;
+    width: 50px;
+    border-radius: 100px;
+}
+
+.post{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 350px;
+}
+
+
+.postTextBlock{
+    width: 210px;
+    border-radius: 15px;
+    display: inline-block;
+    position: relative;
+    box-shadow: 0 0 5px;
+}
+
+.postTextBlock {
+    border-radius: 12px;
+    padding: 10px;
+    background: white;
+    position: relative;
+}
+.postText{
+    word-break:break-all;
+}
+
+.likeBlock{
+    display: flex;
+    justify-content: end;
+}
+
+.likesCount{
+    border-bottom: 1px  solid #000;
+}
+@media screen and (max-width: 480px){
+    .post{
+        width: 280px;
+    }
+    .postTextBlock{
+        width: 150px;
+    }
+}

@@ -1,0 +1,85 @@
+.loginPage {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: #f0f2f0; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #f0f2f0, #000c40); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #f0f2f0, #000c40); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+
+.LoginBlockForm {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 17px;
+    padding: 8px;
+    color: #fff;
+    border: 2px solid #e2e2e2;
+    border-radius: 5px;
+    box-shadow: 0px 0px 4px 0px rgba(84, 84, 84, 0.48), 0px 3px 11px 1px rgba(90, 90, 90, 0.54);
+    background: #0f0c29; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #0f0c29, #302b63, #24243e); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #0f0c29, #302b63, #24243e); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    padding: 0 45px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.LoginBlockForm:before {
+    content: "";
+    position: absolute;
+    top: -160px;
+    left: 0;
+    border-top: 80px solid transparent;
+    border-bottom: 80px solid  #0f0c29;
+    border-left: 188px solid transparent;
+    border-right: 200px solid transparent;
+}
+
+.LoginBlockForm:after {
+    content: "";
+    position: absolute;
+    bottom: -160px;
+    left: 0;
+    border-top: 80px solid  #0f0c29;
+    border-bottom: 80px solid transparent;
+    border-left: 188px solid transparent;
+    border-right: 200px solid transparent;
+}
+
+.LoginBlockForm h2 {
+    font-family: BlinkMacSystemFont;
+    font-size: 30px;
+    color: snow;
+    height: 100px;
+}
+
+.loginForm {
+    height: 200px;
+    width: 300px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.loginLog input, .passwordLog input {
+    height: 30px;
+    width: 250px;
+    font-size: 15px;
+    padding: 5px;
+    border-radius: 15px;
+    box-shadow: 0 0 5px;
+
+}
+

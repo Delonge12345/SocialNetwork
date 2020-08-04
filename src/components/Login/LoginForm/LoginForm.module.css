@@ -1,0 +1,125 @@
+.LoginBlockForm {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 17px;
+    padding: 8px;
+    color: #fff;
+    border: 2px solid #e2e2e2;
+    border-radius: 5px;
+    box-shadow: 0px 0px 4px 0px rgba(84, 84, 84, 0.48), 0px 3px 11px 1px rgba(90, 90, 90, 0.54);
+    background: #1890ff;
+    padding: 0 45px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.LoginBlockForm:before {
+    content: "";
+    position: absolute;
+    top: -160px;
+    left: 0;
+    border-top: 80px solid transparent;
+    border-bottom: 80px solid #1890ff;
+    border-left: 188px solid transparent;
+    border-right: 205px solid transparent;
+}
+
+.LoginBlockForm:after {
+    content: "";
+    position: absolute;
+    bottom: -160px;
+    left: 0;
+    border-top: 80px solid #1890ff;
+    border-bottom: 80px solid transparent;
+    border-left: 188px solid transparent;
+    border-right: 205px solid transparent;
+}
+
+.LoginBlockForm h2 {
+    font-family: BlinkMacSystemFont;
+    font-size: 30px;
+    color: snow;
+    height: 100px;
+}
+
+.loginForm {
+    height: 250px;
+    width: 300px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.loginLog input, .passwordLog input {
+    height: 30px;
+    width: 250px;
+    font-size: 15px;
+    padding: 5px;
+    border-radius: 15px;
+    box-shadow: 0 0 5px;
+
+}
+
+
+.loginForm button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    font-size: 15px;
+    cursor: pointer;
+    width: 265px;
+    height: 40px;
+    box-shadow: 0 0 5px;
+    font-weight: bold;
+    background: navajowhite;
+}
+
+.loginForm button:hover {
+    opacity: 0.8;
+}
+
+input:focus::-webkit-input-placeholder {
+    color: transparent;
+}
+
+input:focus:-moz-placeholder {
+    color: transparent;
+}
+
+/* FireFox 4-18 */
+input:focus::-moz-placeholder {
+    color: transparent;
+}
+
+/* FireFox 19+ */
+input:focus:-ms-input-placeholder {
+    color: transparent;
+}
+
+/* Internet Explorer 10+ */
+
+.loginCheck {
+    display: flex;
+    width: 265px;
+}
+.checkMe{
+    padding-left: 8px;
+}
+.loginCheck input {
+    cursor: pointer;
+}
+.formSummaryError{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: capitalize;
+    font-size: 15px;
+    font-weight: bold;
+    width: 100%;
+    border: 1px solid red;
+    padding: 5px;
+    color: red;
+}

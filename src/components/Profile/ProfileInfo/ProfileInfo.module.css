@@ -1,0 +1,98 @@
+.userBlock{
+    width: 300px;
+    display: flex;
+    height: 500px;
+    justify-content: space-around;
+    flex-direction: column;
+    box-shadow: 0 0 5px;
+    align-items: center;
+
+}
+.infoProfile{
+    height: 700px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+}
+.name{
+    font-size: 20px;
+}
+
+.line{
+    width: 1px;
+    height: 500px;
+    border: 1px solid gainsboro;
+    position: absolute;
+}
+.ava img{
+    height: 200px;
+    width: 250px;
+
+
+}
+
+.description{
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+    width: 250px;
+    padding-left: 30px;
+    font-size: 14px;
+}
+
+.descriptionItem{
+    display: flex;
+}
+
+.descriptionItem i{
+    font-weight: bold;
+    padding-right: 5px;
+}
+
+.status i {
+    color: darkgray;
+    width: 100%;
+}
+.birthday i{
+    width: 100%;
+    color: darkgray;
+}
+.birthday p{
+    width: 100%;
+}
+.sp i{
+    width: 100%;
+    color: darkgray;
+}
+.birthday{
+    width: 220px;
+    justify-content: space-between;
+    display: flex;
+}
+
+.sp{
+    width: 190px;
+    display: flex;
+    justify-content: space-between;
+}
+
+@media screen and (max-width: 1200px){
+    .description{
+        height: 120px;
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 1200px){
+    .profile{
+        flex-direction: column;
+    }
+    .infoProfile {
+        flex-direction: column;
+    }
+    .line{
+        display: none;
+    }
+}

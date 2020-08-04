@@ -1,0 +1,60 @@
+.navBlock{
+  display: flex;
+  justify-content:space-between;
+  color: #202020;
+}
+
+.navLogo{
+  width: 100px;
+  height: 20px;
+}
+
+.nav{
+  display: flex;
+  width: 50%;
+  justify-content: space-around;
+  color: #202020;
+  font-size:20px;
+  text-decoration: none;
+}
+a{
+
+}
+.nav a {
+  text-decoration: none;
+  transition: 0.2s ease;
+
+
+}
+
+
+.navLinkA:hover {
+  background: #000;
+}
+
+
+.navLinkA a.activeLink{
+  background: #000;
+  cursor: pointer;
+  font-weight: bold;
+  color: #fff;
+
+}
+.navLinkA{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.navLinkA a{
+  color: #1890ff;
+  font-size: 1.2rem;
+  text-align: center;
+  font-family: "Open Sans", sans-serif;
+  text-decoration: none;
+  background-color: transparent;
+  outline: none;
+  cursor: pointer;
+  -webkit-transition: color 0.3s;
+  transition: color 0.3s;
+}

@@ -1,0 +1,26 @@
+.loginBlock a{
+    color: #fff ;
+}
+.loginName{
+    text-transform: capitalize;
+}
+.loginBlock {
+    padding: 4px;
+}
+.loginBlock span{
+    display: flex;
+    align-items: center;
+}
+.imgLogOut{
+    height: 30px;
+}
+.imgLogOut img{
+    height: 100%;
+    width: 100%;
+}
+.buttonLogOut{
+    padding: 5px;
+    border: none;
+    background: none;
+    cursor: pointer;
+}

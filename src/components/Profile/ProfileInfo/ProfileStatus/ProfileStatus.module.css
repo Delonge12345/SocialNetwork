@@ -1,0 +1,8 @@
+.descriptionItem{
+    display: flex;
+}
+
+.descriptionItem i{
+    font-weight: bold;
+    padding-right: 5px;
+}

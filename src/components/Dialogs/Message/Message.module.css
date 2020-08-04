@@ -1,0 +1,39 @@
+.DialogsMessage{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 350px;
+}
+
+.dialogsUserAva{
+    display: flex;
+    height: 200px;
+    width: 200px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.dialogsUserAva img{
+    height: 50px;
+    width: 50px;
+    border-radius: 100px;
+}
+
+.dialogsMessageText{
+    border-radius: 12px;
+    padding: 10px;
+    background: white;
+    position: relative;
+    border-radius: 15px;
+    display: inline-block;
+    box-shadow: 0 0 5px;
+}
+.dialogsMessageTextBlock{
+    width: 200px;
+}
+
+.dialogsUserAva p{
+    text-align: center;
+
+}
