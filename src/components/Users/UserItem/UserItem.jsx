@@ -2,8 +2,6 @@ import React from 'react';
 import classes from './UserItem.module.css'
 import userLogo from './1.png'
 import {NavLink} from "react-router-dom";
-import * as axios from "axios";
-import {getUsersAPI} from "../../../api/api";
 
 const UserItem = (props) => {
     return (

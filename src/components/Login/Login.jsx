@@ -19,7 +19,7 @@ const Login = (props) => {
         <div className={classes.loginPage}>
             <div className={classes.LoginBlockForm}>
                 <div><h2>Authorization</h2></div>
-                <LoginReduxForm onSubmit={onSubmit}/>
+                <LoginReduxForm onSubmit={onSubmit} captchaUrl={props.captchaUrl}/>
             </div>
         </div>
     </>

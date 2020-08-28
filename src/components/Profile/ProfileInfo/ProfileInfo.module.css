@@ -1,98 +1,160 @@
+.infoProfile{
+    display: flex;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 .userBlock{
     width: 300px;
+    height: 400px;
     display: flex;
-    height: 500px;
     justify-content: space-around;
     flex-direction: column;
     box-shadow: 0 0 5px;
     align-items: center;
 
 }
-.infoProfile{
-    height: 700px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+
+
+.blockName{
+    font-weight: bold;
+}
+
+.descPosition{
+    padding-left: 50px;
+}
+.descriptionItem i{
+    font-weight: bold;
+    font-size: 15px;
+    padding-right: 5px;
 
 
 }
-.name{
-    font-size: 20px;
-}
 
-.line{
-    width: 1px;
-    height: 500px;
-    border: 1px solid gainsboro;
-    position: absolute;
+.description{
+    padding-top: 20px;
 }
+/*.infoProfile{*/
+/*    height: 700px;*/
+/*    display: flex;*/
+/*    !*align-items: center;*!*/
+/*    justify-content: center;*/
+
+
+/*}*/
+
+/*.statusUploadBlock{*/
+/*    padding-left: 20px;*/
+/*}*/
+/*.name{*/
+/*    font-size: 20px;*/
+/*}*/
+
+/*.line{*/
+/*    width: 1px;*/
+/*    height: 500px;*/
+/*    border: 1px solid gainsboro;*/
+/*    position: absolute;*/
+/*}*/
 .ava img{
     height: 200px;
     width: 250px;
 
 
 }
-
-.description{
+.formSummaryError{
     display: flex;
-    flex-direction: column;
-    height: 500px;
-    width: 250px;
-    padding-left: 30px;
-    font-size: 14px;
-}
-
-.descriptionItem{
-    display: flex;
-}
-
-.descriptionItem i{
+    justify-content: center;
+    align-items: center;
+    text-transform: capitalize;
+    font-size: 15px;
     font-weight: bold;
-    padding-right: 5px;
+    width: 100%;
+    border: 1px solid red;
+    padding: 5px;
+    color: red;
 }
 
-.status i {
-    color: darkgray;
-    width: 100%;
-}
-.birthday i{
-    width: 100%;
-    color: darkgray;
-}
-.birthday p{
-    width: 100%;
-}
-.sp i{
-    width: 100%;
-    color: darkgray;
-}
-.birthday{
-    width: 220px;
-    justify-content: space-between;
-    display: flex;
-}
 
-.sp{
-    width: 190px;
-    display: flex;
-    justify-content: space-between;
-}
 
-@media screen and (max-width: 1200px){
-    .description{
-        height: 120px;
-        justify-content: center;
-    }
-}
+/*.description{*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    height: 500px;*/
+/*    width: 250px;*/
+/*    padding-left: 30px;*/
+/*    font-size: 14px;*/
+/*}*/
 
-@media screen and (max-width: 1200px){
-    .profile{
-        flex-direction: column;
-    }
-    .infoProfile {
-        flex-direction: column;
-    }
-    .line{
-        display: none;
-    }
-}
+/*!*.descriptionItem{*!*/
+/*!*    display: flex;*!*/
+/*!*}*!*/
+
+/*!*.blockName{*!*/
+/*!*    display: flex;*!*/
+/*!*    justify-content: center;*!*/
+/*!*}*!*/
+
+
+/*.descriptionItem i{*/
+/*    font-weight: bold;*/
+/*    font-size: 20px;*/
+/*    padding-right: 5px;*/
+
+
+/*}*/
+
+/*.status i {*/
+/*    color: darkgray;*/
+/*    width: 100%;*/
+/*}*/
+/*.birthday i{*/
+/*    width: 100%;*/
+/*    color: darkgray;*/
+/*}*/
+/*.birthday p{*/
+/*    width: 100%;*/
+/*}*/
+/*.sp i{*/
+/*    width: 100%;*/
+/*    color: darkgray;*/
+/*}*/
+/*.birthday{*/
+/*    width: 220px;*/
+/*    justify-content: space-between;*/
+/*    display: flex;*/
+/*}*/
+
+/*.sp{*/
+/*    width: 190px;*/
+/*    display: flex;*/
+/*    justify-content: space-between;*/
+/*}*/
+
+/*@media screen and (max-width: 1200px){*/
+/*    .description{*/
+/*        height: 120px;*/
+/*        justify-content: center;*/
+/*    }*/
+/*}*/
+
+/*@media screen and (max-width: 1200px){*/
+/*    .profile{*/
+/*        flex-direction: column;*/
+/*    }*/
+/*    !*.infoProfile {*!*/
+/*    !*    flex-direction: column;*!*/
+/*    !*}*!*/
+/*    .line{*/
+/*        display: none;*/
+/*    }*/
+/*}*/

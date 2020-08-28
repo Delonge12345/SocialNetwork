@@ -2,7 +2,23 @@ import React, {useState} from 'react';
 import classes from "./Paginator.module.css";
 
 
-let Paginator = ({totalUsersCount, pageSize, currentPage, onPageChanged, portionSize = 10}) => {
+
+
+type PropsType = {
+    totalUsersCount: number,
+    pageSize:number,
+    currentPage:number,
+    onPageChanged:(pageNumber:number)=>void,
+    portionSize?:number
+}
+
+
+
+
+
+
+
+let Paginator:React.FC<PropsType> = ({totalUsersCount, pageSize, currentPage, onPageChanged, portionSize = 10}) => {
 
 
     let pagesCount = Math.ceil(totalUsersCount / pageSize);
@@ -26,9 +42,10 @@ let Paginator = ({totalUsersCount, pageSize, currentPage, onPageChanged, portion
 
 
         {pages.filter(p => p >= leftPortionPageNumber && p <= rightPortionPageNumber).map(p =>
-                <span onClick={(e) => {
+                <span className ={currentPage === p && classes.selectedPage}
+                    onClick={(e) => {
                     onPageChanged(p)
-                }} className={currentPage === p && classes.selectedPage}>{p}</span>
+                }} >{p}</span>
             )
 
         }

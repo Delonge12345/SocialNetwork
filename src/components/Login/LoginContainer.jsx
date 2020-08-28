@@ -7,7 +7,8 @@ import {loginThunkCreator,logOutThunkCreator} from "../../redux/authReducer";
 
 const mapStateToProps=(state)=>{
     return{
-        isAuth: state.authPage.isAuth
+        isAuth: state.authPage.isAuth,
+        captchaUrl: state.authPage.captchaUrl
     }
 }
 

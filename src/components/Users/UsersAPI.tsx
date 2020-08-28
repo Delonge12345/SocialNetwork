@@ -3,10 +3,29 @@ import * as axios from "axios";
 import Users from "./Users";
 import Preloader from "../Preloader/Preloader";
 import {getUsersAPI} from "../../api/api";
+import {UsersType} from "../../types/types";
 
 
 
-class UsersAPI extends React.Component {
+
+type PropsType = {
+    currentPage:number,
+    pageSize:number,
+    isFetching:boolean,
+    totalUsersCount:number,
+    setFollowProcess:(userId:number)=>void
+    users:Array<UsersType>
+    getUsersThunk: (currentPage:number,pageSize:number) => void,
+    followingProcess:Array<Number>,
+    unfollowUser:()=>void,
+    followUser:()=>void,
+    followFetching:boolean,
+    followUserThunk:(userId:number)=>void,
+    unfollowUserThunk:(userId:number)=>void,
+
+}
+
+class UsersAPI extends React.Component<PropsType> {
 
 
 
@@ -22,7 +41,7 @@ class UsersAPI extends React.Component {
         const {currentPage,pageSize} = this.props;
         this.props.getUsersThunk(currentPage,pageSize)
     }
-    onPageChanged = (page) => {
+    onPageChanged = (page:number) => {
         const {pageSize} = this.props;
         this.props.getUsersThunk(page,pageSize)
         // this.props.setCurrentPage(page)

@@ -41,6 +41,17 @@ export const getProfileAPI = {
     },
     updateProfileStatus(status){
         return instance.put(baseUrl + 'profile/status',{status:status})
+    },
+    savePhoto(file) {
+        const formData = new FormData();
+        formData.append("image",file)
+        return instance.put(baseUrl + 'profile/photo',formData,{headers: {
+            'Content-Type': 'multipart/form-data'
+            }})
+    },
+
+    saveProfileData(profile) {
+        return instance.put(baseUrl + 'profile',profile)
     }
 }
 
@@ -57,6 +68,16 @@ export const getAuthMeAPI = {
 
 
 }
+
+export const securityAPI = {
+    getCaptchaUrl() {
+        return instance.get(baseUrl + `security/get-captcha-url`);
+    }
+}
+
+
+
+
 
 
 

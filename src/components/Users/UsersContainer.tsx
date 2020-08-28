@@ -15,11 +15,39 @@ import {
     getTotalUsersCount,
     getUsers
 } from "../../redux/users-selectors";
+import {AppStateType} from "../../redux/redux-store";
+import {UsersType} from "../../types/types";
+
+
+type OwnPropsType={}
+
+
+type MapStateToPropsType = {
+    currentPage:number,
+    pageSize:number,
+    isFetching:boolean,
+    totalUsersCount:number,
+    users:Array<UsersType>,
+    followFetching:boolean,
+    followingProcess:Array<Number>,
+}
+
+type MapDispatchToPropsType = {
+    followUserThunk:(userId:number)=>void,
+    unfollowUserThunk:(userId:number)=>void,
+    getUsersThunk: (currentPage:number,pageSize:number) => void,
+    // setFollowProcess:(userId:number)=>void
+    // unfollowUser:()=>void,
+    // followUser:(id:number)=>void,
+
+}
+
+type PropsType = MapStateToPropsType & MapDispatchToPropsType
 
 
 
 
-const mapStateToProps=(state)=>{
+const mapStateToProps=(state:AppStateType):MapStateToPropsType =>{
     return{
         users: getUsers(state),
         pageSize:getPageSize(state),
@@ -33,7 +61,7 @@ const mapStateToProps=(state)=>{
 
 
 
-const mapDispatchToProps=(dispatch)=>{
+const mapDispatchToProps=(dispatch:any):MapDispatchToPropsType=>{
     return{
         // followUser:(userId)=>{
         //     dispatch(followedActionCreator(userId));
@@ -70,4 +98,4 @@ const mapDispatchToProps=(dispatch)=>{
 
 
 
-export const UsersContainer = connect(mapStateToProps,mapDispatchToProps)(UsersAPI);
+export const UsersContainer = connect<MapStateToPropsType,MapDispatchToPropsType,OwnPropsType,AppStateType>(mapStateToProps,mapDispatchToProps)(UsersAPI);

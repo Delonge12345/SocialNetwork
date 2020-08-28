@@ -4,7 +4,7 @@ import {Field} from "redux-form";
 import {Input} from "../../common/FormsControls/FormsControls";
 import {required} from "../../../utils/validators/validators";
 
-const LoginForm = ({handleSubmit,error}) => {
+const LoginForm = ({handleSubmit,error,captchaUrl}) => {
     return (
         <form onSubmit={handleSubmit} className={classes.loginForm}>
             <div className={classes.loginLog}>
@@ -15,6 +15,8 @@ const LoginForm = ({handleSubmit,error}) => {
                 <Field type={"checkbox"} name={'rememberMe'} component={'input'}/>
                 <span className={classes.checkMe}>Запомнить</span>
             </div>
+            {captchaUrl && <img src={captchaUrl} alt=""/>}
+            {captchaUrl && <Field type={"text"} name={'captcha'} component={Input} validate={[required]}></Field>}
             {error && <div className={classes.formSummaryError}> {error}</div>}
             <div className={classes.buttonLog}>
                 <button>Login</button>

@@ -1,9 +1,14 @@
 import React from "react";
 import {connect} from "react-redux";
 import {
-    addPostActionCreator, getProfileStatusCreator, getProfileThunkCreator,
+    addPostActionCreator,
+    getProfileStatusCreator,
+    getProfileThunkCreator,
+    savePhotoThunkCreator,
+    saveProfileThunkCreator,
     setUserProfileActionCreator,
-    updateNewPostTextActionCreator, updateProfileStatusCreator
+    updateNewPostTextActionCreator,
+    updateProfileStatusCreator
 } from "../../redux/profileReducer";
 import ProfileAPI from "./ProfileAPI";
 import {withRouter} from "react-router-dom";
@@ -43,6 +48,12 @@ const mapDispatchToProps = (dispatch) => {
         },
         updateProfileStatusThunk:(status)=>{
             dispatch(updateProfileStatusCreator(status))
+        },
+        savePhotoThunk: (file) =>{
+            dispatch(savePhotoThunkCreator(file))
+        },
+        saveProfileThunk: (data) =>{
+            dispatch(saveProfileThunkCreator(data))
         }
     }
 }

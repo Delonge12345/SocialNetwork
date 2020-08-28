@@ -1,6 +1,6 @@
 import React, {Suspense} from 'react';
 import './App.css';
-import {BrowserRouter as Router, Route, withRouter} from 'react-router-dom';
+import {BrowserRouter as Router, HashRouter, Redirect, Route, Switch, withRouter} from 'react-router-dom';
 import {MenuBurger} from "./components/MenuBurger/MenuBurger";
 import News from "./components/News/News";
 import Settings from "./components/Settings/Settings";
@@ -39,13 +39,17 @@ class App extends React.Component {
                     <MenuBurger/>
                     <div className='content'>
                         <LoginContainer/>
-                        <Route path='/profile/:userId?' render={() => <ProfileContainer/>}/>
-                        <Route path='/dialogs' render={() => <Suspense fallback={<Preloader/>}><DialogsContainer/></Suspense>  }/>
-                        <Route path='/news' render={() => <News/>}/>
-                        <Route path='/settings' render={() => <Settings/>}/>
-                        <Route path='/music' render={() => <Music/>}/>
-                        <Route path='/users' render={() => <UsersContainer/>}/>
-                        <Route path='/login' render={() => <LoginContainer/>}/>
+                        <Switch>
+                            <Route exact path='/' render={()=><Redirect to={'/profile'}></Redirect>}/>
+                            <Route path='/profile/:userId?' render={() => <ProfileContainer/>}/>
+                            <Route path='/dialogs'
+                                   render={() => <Suspense fallback={<Preloader/>}><DialogsContainer/></Suspense>}/>
+                            <Route path='/news' render={() => <News/>}/>
+                            <Route path='/settings' render={() => <Settings/>}/>
+                            <Route path='/music' render={() => <Music/>}/>
+                            <Route path='/users' render={() => <UsersContainer/>}/>
+                            <Route path='/login' render={() => <LoginContainer/>}/>
+                        </Switch>
                     </div>
                     <Footer/>
                 </div>
@@ -73,12 +77,11 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 
-
 const AppContainer = compose(connect(mapStateToProps, mapDispatchToProps), withRouter)(App);
-const SamuraiJsApp =  (props) => {
-   return  <Router>
+const SamuraiJsApp = (props) => {
+    return <Router>
         <Provider store={store}>
-            <AppContainer />
+            <AppContainer/>
         </Provider>
     </Router>
 }
