@@ -25,6 +25,9 @@ export const appReducer = (state:InitialStateType = initialState, action:any):In
 }
 
 
+
+
+
 export const initializedThunkCreator = () => {
     return async (dispatch:any) => {
 

@@ -1,5 +1,7 @@
-import {getAuthMeAPI, securityAPI} from "../api/api";
+import {getAuthMeAPI, ResultCodesEnum, securityAPI} from "../api/api";
 import {stopSubmit} from "redux-form";
+import {ThunkAction} from "redux-thunk";
+import {AppStateType} from "./redux-store";
 
 const INITIALIZED_ME = 'authReducer/INITIALIZED_ME';
 const LOG_IN = 'authReducer/LOG_IN';
@@ -47,26 +49,30 @@ const authReducer = (state = initialState, action:any):InitialStateType => {
 }
 
 
-export const getAuthMeThunkCreator = () => {
-    return async (dispatch:any) => {
-        let response = await getAuthMeAPI.authMe()
-        if (response.data.resultCode === 0) {
-            let {id, email, login} = response.data.data;
+type ThunkType = ThunkAction<Promise<void>,AppStateType,unknown,ActionsTypes>;
+
+
+export const getAuthMeThunkCreator = ():ThunkType => {
+    return async (dispatch) => {
+        let meData = await getAuthMeAPI.authMe()
+
+        if (meData .resultCode === ResultCodesEnum.Success) {
+            let {id, email, login} = meData.data;
             dispatch(authMeActionCreator(id, email, login, true))
         }
     }
 }
 
-export const loginThunkCreator = (email:string, password:string, rememberMe:boolean, captcha:string) => {return async (dispatch:any) => {
-        let response = await getAuthMeAPI.login(email, password, rememberMe, captcha)
+export const loginThunkCreator = (email:string, password:string, rememberMe:boolean, captcha:string):ThunkType => {return async (dispatch:any) => {
+        let loginData = await getAuthMeAPI.login(email, password, rememberMe, captcha)
 
-        if (response.data.resultCode === 0) {
+        if (loginData.resultCode === ResultCodesEnum.Success) {
             dispatch(getAuthMeThunkCreator())
         } else {
-            if (response.data.resultCode === 1) {
+            if (loginData.resultCode === ResultCodesEnum.Error) {
                 dispatch(captchaUrlThunkCreator())
             }
-            let message = response.data.messages.length > 0 ? response.data.messages[0] : 'Some error';
+            let message = loginData.messages.length > 0 ? loginData.messages[0] : 'Some error';
             dispatch(stopSubmit('loginAuth', {_error: message}));
 
         }
@@ -75,11 +81,11 @@ export const loginThunkCreator = (email:string, password:string, rememberMe:bool
 
 
 
-export const logOutThunkCreator = () => {
+export const logOutThunkCreator = ():ThunkType => {
     return async (dispatch:any) => {
         let response = await getAuthMeAPI.logOut()
 
-        if (response.data.resultCode === 0) {
+        if (response.data.resultCode === ResultCodesEnum.Success) {
             dispatch(authMeActionCreator(null, null, null, false))
         }
     }
@@ -93,6 +99,10 @@ export const captchaUrlThunkCreator = () => {
     }
 }
 
+
+type ActionsTypes =   SetAuthMeActionCreatorType | getCaptchaActionCreatorType
+
+
 type SetAuthMeActionCreatorTypePayload={
     id:number | null
     email:string | null
@@ -104,6 +114,10 @@ type SetAuthMeActionCreatorType={
     type: typeof INITIALIZED_ME,
     data: SetAuthMeActionCreatorTypePayload
 }
+
+
+
+
 
 export const authMeActionCreator = (id:number | null, email:string | null, login:string | null, isAuth:boolean):SetAuthMeActionCreatorType => ({
     type: INITIALIZED_ME,

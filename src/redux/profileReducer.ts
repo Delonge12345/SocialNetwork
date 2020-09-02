@@ -2,6 +2,8 @@ import {getProfileAPI} from "../api/api";
 import ProfileAPI from "../components/Profile/ProfileAPI";
 import {stopSubmit} from "redux-form";
 import {ProfileType,PostsType,PhotosType} from "../types/types";
+import {ThunkAction} from "redux-thunk";
+import {AppStateType} from "./redux-store";
 const ADD_POST = 'ADD_POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE_NEW_POST_TEXT';
 const SET_USER_PROFILE = 'SET_USER_PROFILE';
@@ -83,8 +85,10 @@ const profileReducer = (state = initialState, action:any):InitialStateType => {
 }
 
 
-export const getProfileThunkCreator = (userId:number) => {
-    return async (dispatch:any) => {
+type ThunkType = ThunkAction<Promise<void>,AppStateType,unknown,ActionsTypes>;
+
+export const getProfileThunkCreator = (userId:number):ThunkType=> {
+    return async (dispatch) => {
         let response = await getProfileAPI.getProfile(userId)
 
         dispatch(setUserProfileActionCreator(response.data))
@@ -93,16 +97,16 @@ export const getProfileThunkCreator = (userId:number) => {
 }
 
 
-export const getProfileStatusCreator = (userId:number) => {
-    return async (dispatch:any) => {
+export const getProfileStatusCreator = (userId:number):ThunkType => {
+    return async (dispatch) => {
         let response = await getProfileAPI.getProfileStatus(userId)
         dispatch(setProfileStatusActionCreator(response.data))
 
     }
 }
 
-export const updateProfileStatusCreator = (status:string) => {
-    return async (dispatch:any) => {
+export const updateProfileStatusCreator = (status:string):ThunkType => {
+    return async (dispatch) => {
         let response = await getProfileAPI.updateProfileStatus(status)
 
         if (response.data.resultCode === 0) {
@@ -112,8 +116,8 @@ export const updateProfileStatusCreator = (status:string) => {
     }
 }
 
-export const savePhotoThunkCreator = (file:PhotosType) => {
-    return async (dispatch:any) => {
+export const savePhotoThunkCreator = (file:PhotosType):ThunkType => {
+    return async (dispatch) => {
         let response = await getProfileAPI.savePhoto(file);
         if (response.data.resultCode === 0) {
             dispatch(setProfilePhotoActionCreator(response.data.data.photos))
@@ -121,8 +125,8 @@ export const savePhotoThunkCreator = (file:PhotosType) => {
     }
 }
 
-export const saveProfileThunkCreator = (profile:ProfileType) => {
-    return async (dispatch:any,getState:any) => {
+export const saveProfileThunkCreator = (profile:ProfileType):ThunkType => {
+    return async (dispatch,getState) => {
         const userId = getState().authPage.id
         let response = await getProfileAPI.saveProfileData(profile)
         if (response.data.resultCode === 0) {
@@ -137,6 +141,8 @@ export const saveProfileThunkCreator = (profile:ProfileType) => {
 
 export default profileReducer;
 
+
+type ActionsTypes = AddPostActionCreatorType | SetUserProfileActionCreatorType | SetProfileStatusActionCreatorType| SetProfilePhotoActionCreatorType
 
 type AddPostActionCreatorType = {
     type:typeof ADD_POST,
