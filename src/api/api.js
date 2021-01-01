@@ -10,8 +10,8 @@ const instance = axios.create({
 
 
 export const getUsersAPI = {
-    getUsers(currentPage, pageSize) {
-        return instance.get(baseUrl + `users?page=${currentPage}&count=${pageSize}`)
+    getUsers(currentPage, pageSize, term = '', friend = null) {
+        return instance.get(baseUrl + `users?page=${currentPage}&count=${pageSize}&term=${term}` + (friend === null ? '' : `&friend=${friend}`))
             .then(response => {
                 return response.data;
             })
@@ -30,28 +30,28 @@ export const getUsersAPI = {
 export const getProfileAPI = {
     getProfile(userId) {
         return instance.get(baseUrl + 'profile/' + userId)
-            // .then(response => {
-            //     return response.data;
-            // })
+        // .then(response => {
+        //     return response.data;
+        // })
     },
 
-    getProfileStatus(userId){
+    getProfileStatus(userId) {
         return instance.get(baseUrl + 'profile/status/' + userId)
 
     },
-    updateProfileStatus(status){
-        return instance.put(baseUrl + 'profile/status',{status:status})
+    updateProfileStatus(status) {
+        return instance.put(baseUrl + 'profile/status', {status: status})
     }
 }
 
 export const getAuthMeAPI = {
-    authMe(){
+    authMe() {
         return instance.get(baseUrl + `auth/me`)
     },
-    login(email,password,rememberMe=false,captcha=null){
-        return instance.post(baseUrl + `auth/login`,{email, password, rememberMe, captcha});
+    login(email, password, rememberMe = false, captcha = null) {
+        return instance.post(baseUrl + `auth/login`, {email, password, rememberMe, captcha});
     },
-    logOut(){
+    logOut() {
         return instance.delete(baseUrl + `auth/login`)
     }
 

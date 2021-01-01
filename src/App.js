@@ -7,7 +7,7 @@ import Settings from "./components/Settings/Settings";
 import Music from "./components/Music/Music";
 import Footer from "./components/Footer/Footer";
 // import DialogsContainer from "./components/Dialogs/DialogsContainer";
-import {UsersContainer} from "./components/Users/UsersContainer";
+import UsersPage, {UsersContainer} from "./components/Users/UsersContainer";
 import {ProfileContainer} from "./components/Profile/ProfileContainer";
 import {LoginContainer} from "./components/Login/LoginContainer";
 import {connect, Provider} from "react-redux";
@@ -44,7 +44,7 @@ class App extends React.Component {
                         <Route path='/news' render={() => <News/>}/>
                         <Route path='/settings' render={() => <Settings/>}/>
                         <Route path='/music' render={() => <Music/>}/>
-                        <Route path='/users' render={() => <UsersContainer/>}/>
+                        <Route path='/users' render={() => <UsersPage/>}/>
                         <Route path='/login' render={() => <LoginContainer/>}/>
                     </div>
                     <Footer/>

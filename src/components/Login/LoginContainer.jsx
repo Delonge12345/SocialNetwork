@@ -5,6 +5,13 @@ import {loginThunkCreator,logOutThunkCreator} from "../../redux/authReducer";
 
 
 
+
+
+
+
+
+
+
 const mapStateToProps=(state)=>{
     return{
         isAuth: state.authPage.isAuth

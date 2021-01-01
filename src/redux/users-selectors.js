@@ -26,3 +26,7 @@ export const getFollowingProcess= (state) =>{
 export const getFollowFetching= (state) =>{
     return state.usersPage.followFetching
 }
+
+export const getFilter= (state) =>{
+    return state.usersPage.filter
+}

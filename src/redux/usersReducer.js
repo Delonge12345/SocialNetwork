@@ -7,6 +7,7 @@ const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
 const SET_TOTAL_USERS_COUNT = 'SET_TOTAL_USERS_COUNT';
 const IS_FETCHING = 'IS_FETCHING';
 const FOLLOWING_PROCESS = 'FOLLOWING_PROCCESS';
+const SET_FILTER = 'SET_FILTER';
 
 let initialState = {
     users: [],
@@ -15,7 +16,11 @@ let initialState = {
     currentPage: 1,
     isFetching: true,
     followFetching: true,
-    followingProcess: []
+    followingProcess: [],
+    filter:{
+        term: '',
+        friend: null
+    }
 }
 
 
@@ -60,15 +65,19 @@ const usersReducer = (state = initialState, action) => {
             return {...state, totalUsersCount: action.totalCount}
         case IS_FETCHING:
             return {...state, isFetching: action.isFetching}
+
+        case SET_FILTER:
+            return {...state, filter: action.payload}
         default :
             return state
     }
 }
-export const getUsersThunkCreator = (currentPage, pageSize) => {
+export const getUsersThunkCreator = (currentPage, pageSize,filter) => {
     return async (dispatch) => {
         dispatch(setFetchingActionCreator(true));
         dispatch(setCurrentPageActionCreator(currentPage))
-        let data = await getUsersAPI.getUsers(currentPage, pageSize)
+        dispatch(setFilterActionCreator(filter));
+        let data = await getUsersAPI.getUsers(currentPage, pageSize,filter.term,filter.friend)
 
         dispatch(setFetchingActionCreator(false));
 
@@ -108,6 +117,7 @@ export const unFollorUserThunkCreator = (id) => {
 
 export const followedActionCreator = (userId) => ({type: FOLLOWED, userId: userId});
 export const unFollowedActionCreator = (userId) => ({type: UNFOLLOWED, userId: userId});
+export const setFilterActionCreator = (filter) => ({type: SET_FILTER, payload: filter});
 export const setUsersActionCreator = (users) => ({type: SET_USERS, users: users});
 export const setCurrentPageActionCreator = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage: currentPage});
 export const setTotalUsersCountActionCreator = (totalCount) => ({type: SET_TOTAL_USERS_COUNT, totalCount: totalCount});
